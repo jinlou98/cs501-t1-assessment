@@ -10,7 +10,7 @@ class RegisterAPI(MethodView):
     """
     User Registration Resource
     """
-
+    
     def get(self):
         responseObject = {
             'status': 'success',
@@ -38,7 +38,7 @@ class RegisterAPI(MethodView):
                 responseObject = {
                     'status': 'success',
                     'message': 'Successfully registered.',
-                    'auth_token': auth_token.decode()
+                    'auth_token': auth_token
                 }
                 return make_response(jsonify(responseObject)), 201
             except Exception as e:

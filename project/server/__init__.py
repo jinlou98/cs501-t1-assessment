@@ -1,3 +1,4 @@
+from datetime import MAXYEAR
 import os
 import sys
 
@@ -68,3 +69,14 @@ def test(coverage):
             COV.erase()
         return 0
     return 1
+
+@app.route('/users/index', methods=['GET'])
+def index():
+    # print all registered users
+    # get the email from the get request
+    # create a dictionary
+    returnDict = {}
+    for user in db.session.query(User).all():
+        returnDict[user.id] = user.email
+    return returnDict
+     
